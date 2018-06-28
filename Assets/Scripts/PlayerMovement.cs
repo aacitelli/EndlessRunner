@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // This value needs to be the same across every path segment, and this is the only class that is the same across all of them
+    public static float pathLastXValue;
 
     private void Start()
     {
-        for (float y = 5; y < 15; y += .125f)
+        for (float y = 4; y < 16; y += .125f)
         {
             PathBehavior.CreateInitialObjects(y - 10);
         }
