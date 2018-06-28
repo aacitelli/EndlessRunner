@@ -1,4 +1,4 @@
-Anden Acitelli
+aacitelli
 
 This is "Endless Runner", a game intended to help me learn Unity Engine Game Development. 
 
