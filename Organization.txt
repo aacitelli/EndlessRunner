@@ -1,6 +1,6 @@
-Stuff 100% necessary for a complete game
+Stuff 100% necessary for a complete game (In addition to the "known bugs" section)
 
-- Make a menu and settings screen and all that (Involves switching scenes which isn't hard but I'd need to learn it)
+- Finish menu screen 
 - COLLISION (Will be weird, but long story short, I'll check that none of the triangle is touching white, not sure if that's easy but I'm hoping it is
 - Implement bad luck protection
 
@@ -9,6 +9,7 @@ Stuff I really should do but the game would still be complete otherwise
 
 - Bad luck protection
 - See if there's a more efficient / smoother looking way to make the rectangles - Look for a unity-native rectangle?
+- Standardize scene sizes and locations 
 
 
 Stuff I could leave out and would still consider the game complete
@@ -19,6 +20,10 @@ Stuff I could leave out and would still consider the game complete
 - Add powerups that slow down the track or make the track bigger (specifically seems really hard to implement - Would have to switch out all the textures probably) something like that
 
 
-Known Bugs
+Game-Breaking Bugs
 
 - STILL HOLES IN THE PATHS - I NEED TO FIGURE OUT THE GENERATION SYSTEM AND THE BEST WAY TO DO IT (It's not "my way", that's for sure)
+
+
+Non-Game-Breaking Bugs
+

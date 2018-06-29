@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,9 +47,14 @@ public class PlayerMovement : MonoBehaviour
         // If I get in any infinite loops by accident, this will hopefully work
         if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            NextScene("MainMenuScene");
         }
 	}
+
+    public void NextScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 
     /*
     // Used for collision
