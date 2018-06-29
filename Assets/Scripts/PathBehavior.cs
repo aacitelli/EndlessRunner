@@ -14,24 +14,19 @@ public class PathBehavior : MonoBehaviour
 
     // Called once per frame
     private void Update()
-    {        
+    {
+        ReuseObject();
+        //CheckCollision();
+
         // Moves downward slowly - This works fine
         Vector3 position = this.transform.position;
 
         // Todo - Implement time elapsed into this
-        position.y = this.transform.position.y - HARD_DIFFICULTY;
+        position.y = this.transform.position.y - HARD_DIFFICULTY - .2f;
         this.transform.position = position;        
     }
-    
-    // Called in time intervals, not per frame - Use this for physics stuff so it looks consistent regardless of lag
-    private void FixedUpdate()
-    {
-        // Checks if they go off the bottom of the screen and sends them back up top
-        ReuseObject();
-        CheckCollision();
-    }
 
-    // Makes a 
+    // Used only to make all the stuff at the beginning
     public static void CreateInitialObjects(float yPos)
     {
         Vector3 newPos;
@@ -45,13 +40,11 @@ public class PathBehavior : MonoBehaviour
     private void ReuseObject()
     {
        // Resets it back to the top of the screen - Only does it if no path has already moved back up top
-       if (transform.position.y < -6 && !PlayerMovement.pathHasMovedThisFrame)
+       if (transform.position.y < -6)
        {
-            PlayerMovement.pathHasMovedThisFrame = true;
-
             Vector3 position = this.transform.position;
             position.y = 6f;
-            position.x = PlayerMovement.pathLastXValue + Random.Range(-.4f, .4f);
+            position.x = PlayerMovement.pathLastXValue + Random.Range(-.2f, .2f);
 
             // These two lines are to make sure the path never generates off of the screen. Works by resetting the value to closer inside the screen, but offset by a small random value so it doesn't just show up as a straight line
             if (position.x >= 10)
@@ -66,6 +59,7 @@ public class PathBehavior : MonoBehaviour
         }
     }
 
+    /*
     private void CheckCollision()
     {
         // Checking Y-coordinate first because that will rule out more than once and be slightly more efficient
@@ -78,4 +72,5 @@ public class PathBehavior : MonoBehaviour
             }
         }
     }
+    */
 }
