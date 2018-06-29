@@ -1,19 +1,15 @@
 Planned / Todo
 
-- Redo the texture on the player to be seen in front of the path, probably grey or with a white outline or something
 - Make a menu and settings screen and all that (Involves switching scenes which isn't hard but I'd need to learn it)
-- Make it so the path can't generate offscreen 
 - See if there's a more efficient method for making the path rather than using a bunch of rectangle textures - Maybe see if there's a built-in "box" in Unity2D
-
+- COLLISION (Will be weird, but long story short, I'll check that none of the triangle is touching white, not sure if that's easy but I'm hoping it is
+- Increase speed over time
+- Fix 
 
 Known Bugs
-
-- The path segments all sort of "conglomerate" onto lines together, leading to spaced out lines. No clue why.
-- Path goes really fast (This is intentional, and easy to fix, but I'm using it for testing which direction the generation goes)
-
 
 Ideas 
 
 - Different Gamemodes
-- Different Difficulties (Easy, Medium, or Hard - Just changes 
+- Different Difficulties (Easy, Medium, or Hard - Just changes the speed but could also change how fast the track changes - It's all just variables, so wouldn't be hard to do)
 - Add powerups that slow down the track or make the track bigger (specifically seems really hard to implement - Would have to switch out all the textures probably) something like that
