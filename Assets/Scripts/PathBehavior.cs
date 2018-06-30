@@ -70,15 +70,7 @@ public class PathBehavior : MonoBehaviour
         {
             if (Mathf.Abs(transform.position.x - PlayerMovement.xPos) > 3.4f)
             {
-                if (UnityEditor.EditorApplication.isPlaying)
-                {
-                    UnityEditor.EditorApplication.isPlaying = false;
-                }
-
-                else
-                {
-                    Application.Quit();
-                }
+                //Application.Quit();
             }
         }
     }
