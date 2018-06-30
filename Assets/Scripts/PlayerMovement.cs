@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     // Public Variables
     public static float pathLastXValue = 0;    // This value needs to be the same across every path segment, so it's in this class, which is global
+    public static float xPos = 0;
+    private static int count = 0;
     
     // Run once at the start of the game
     private void Start()
@@ -22,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Used for collision
+        xPos = transform.position.x;
+
         // Move Left - Checks for edge of screen
         if (Input.GetKey(KeyCode.LeftArrow) && this.transform.position.x > -12.8f)
         {
@@ -38,4 +43,12 @@ public class PlayerMovement : MonoBehaviour
             this.transform.position = position;
         }
 	}
+
+    public static void RegisterHit()
+    {
+        count++;
+        print(count);
+    }
+
+    
 }

@@ -6,6 +6,7 @@ public class PathBehavior : MonoBehaviour
 {
     const float EASY_DIFFICULTY = .06f, MEDIUM_DIFFICULTY = .08f, HARD_DIFFICULTY = .1f, TESTING_DIFFICULTY = .4f;
     private static Vector3 newPos;
+    
 
     // Initialization of Variables
     private void Start()
@@ -17,6 +18,7 @@ public class PathBehavior : MonoBehaviour
     private void Update()
     {
         ReuseObject();
+        CheckCollision();
 
         // Moves downward slowly - This works fine
         Vector3 position = this.transform.position;
@@ -52,6 +54,27 @@ public class PathBehavior : MonoBehaviour
             this.transform.position = position;
 
             PlayerMovement.pathLastXValue = position.x;
+        }
+    }
+
+    // Collision isn't pixel perfect (which is ultimately the end goal, and requres a different collision system), but it's like 99% accurate and that's good enough for now
+    private void CheckCollision()
+    {
+        // Checking that it's in the right y-coordinate
+        if (this.transform.position.y <= -2.2f && this.transform.position.y >= -3.8f)
+        {
+            if (Mathf.Abs(transform.position.x - PlayerMovement.xPos) > 3.2f)
+            {
+                if (UnityEditor.EditorApplication.isPlaying)
+                {
+                    PlayerMovement.RegisterHit();
+                }
+
+                else
+                {
+                    Application.Quit();
+                }
+            }
         }
     }
 }
