@@ -7,12 +7,17 @@ using UnityEngine.SceneManagement;
 public class PathBehavior : MonoBehaviour
 {
     const float EASY_DIFFICULTY = .06f, MEDIUM_DIFFICULTY = .08f, HARD_DIFFICULTY = .1f, TESTING_DIFFICULTY = .4f;
-    private static Vector3 newPos;    
+    private static Vector3 newPos;
+    Vector3 wrld; 
+    float halfWidth;
+
 
     // Initialization of Variables
     private void Start()
     {
-
+        wrld = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
+        halfWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        
     }
 
     // Called once per frame
@@ -27,7 +32,7 @@ public class PathBehavior : MonoBehaviour
 
         // Moves downward slowly - This works fine
         Vector3 position = this.transform.position;
-        position.y = this.transform.position.y - HARD_DIFFICULTY - .2f;
+        position.y = this.transform.position.y - HARD_DIFFICULTY - .25f;
         this.transform.position = position;        
     }
 
@@ -47,13 +52,13 @@ public class PathBehavior : MonoBehaviour
        {
             Vector3 position = this.transform.position;
             position.y = 6f;
-            position.x = PlayerMovement.pathLastXValue + Random.Range(-.2f, .2f);
+            position.x = PlayerMovement.pathLastXValue + Random.Range(-wrld.x * .015f, wrld.x * .015f);
 
             // These two lines are to make sure the path never generates off of the screen. Works by resetting the value to closer inside the screen, but offset by a small random value so it doesn't just show up as a straight line
-            if (position.x >= 10)
-                position.x = 10 + Random.Range(-.1f, .1f);
-            else if (position.x <= -10)
-                position.x = -10 + Random.Range(-.1f, .1f);
+            if (position.x >= wrld.x - halfWidth)
+                position.x = wrld.x - halfWidth + Random.Range(-.5f, .5f);
+            else if (position.x <= (-1 * wrld.x) + halfWidth)
+                position.x = (-1 * wrld.x) + halfWidth + Random.Range(-.5f, .5f);
 
             // If everything checks out, the position of the sprite is set
             this.transform.position = position;
@@ -70,7 +75,7 @@ public class PathBehavior : MonoBehaviour
         {
             if (Mathf.Abs(transform.position.x - PlayerMovement.xPos) > 3.4f)
             {
-                //Application.Quit();
+                Application.Quit();
             }
         }
     }
