@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PathBehavior : MonoBehaviour
 {
     const float EASY_DIFFICULTY = .06f, MEDIUM_DIFFICULTY = .08f, HARD_DIFFICULTY = .1f, TESTING_DIFFICULTY = .4f;
-    private static Vector3 newPos;
-    
+    private static Vector3 newPos;    
 
     // Initialization of Variables
     private void Start()
@@ -18,7 +19,11 @@ public class PathBehavior : MonoBehaviour
     private void Update()
     {
         ReuseObject();
-        CheckCollision();
+
+        if (SceneManager.GetActiveScene().name.Equals("MainSceneFinal"))
+        {
+            CheckCollision();
+        }
 
         // Moves downward slowly - This works fine
         Vector3 position = this.transform.position;
@@ -63,11 +68,11 @@ public class PathBehavior : MonoBehaviour
         // Checking that it's in the right y-coordinate
         if (this.transform.position.y <= -2.2f && this.transform.position.y >= -3.8f)
         {
-            if (Mathf.Abs(transform.position.x - PlayerMovement.xPos) > 3.2f)
+            if (Mathf.Abs(transform.position.x - PlayerMovement.xPos) > 3.4f)
             {
                 if (UnityEditor.EditorApplication.isPlaying)
                 {
-                    PlayerMovement.RegisterHit();
+                    UnityEditor.EditorApplication.isPlaying = false;
                 }
 
                 else
