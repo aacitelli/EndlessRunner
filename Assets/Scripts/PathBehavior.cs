@@ -12,7 +12,7 @@ public class PathBehavior : MonoBehaviour
     float halfWidth;
 
 
-    // Initialization of Variables
+    // Initialization of VariablesS
     private void Start()
     {
         wrld = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
@@ -52,7 +52,7 @@ public class PathBehavior : MonoBehaviour
        {
             Vector3 position = this.transform.position;
             position.y = 6f;
-            position.x = PlayerMovement.pathLastXValue + Random.Range(-wrld.x * .015f, wrld.x * .015f);
+            position.x = PlayerMovement.pathLastXValue + Random.Range(-wrld.x * .01f, wrld.x * .01f);
 
             // These two lines are to make sure the path never generates off of the screen. Works by resetting the value to closer inside the screen, but offset by a small random value so it doesn't just show up as a straight line
             if (position.x >= wrld.x - halfWidth)

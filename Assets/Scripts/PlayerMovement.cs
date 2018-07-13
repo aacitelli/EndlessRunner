@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) && this.transform.position.x > (-1 * wrld.x) + halfSize)
         {
             Vector3 position = this.transform.position;
-            position.x -= .2f;
+            position.x -= wrld.x * .015f;
             this.transform.position = position;
         }
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) && this.transform.position.x < wrld.x - halfSize)
         {
             Vector3 position = this.transform.position;
-            position.x += .2f;
+            position.x += wrld.x * .015f;
             this.transform.position = position;
         }
 	}
