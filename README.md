@@ -6,7 +6,7 @@ This is "Endless Runner", a game intended to help me learn Unity Engine Game Dev
 
 ### Current state of the project
 
-Not being actively worked on, but I plan to come back and finish some stuff up when I get the time. The core functionality of the game is done, it's mostly just making some menus and making it flow smoother. 
+Not being actively worked on in favor of other projects, but I plan to come back and finish some stuff up when I get the time. The core functionality of the game is done, it's mostly just figuring out Unity's scene system and making it all flow a little smoother.
 
 ### What's next for the project?
 
