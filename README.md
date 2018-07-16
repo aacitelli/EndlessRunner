@@ -4,6 +4,22 @@ This is "Endless Runner", a game intended to help me learn Unity Engine Game Dev
 
 # "Technical" Writeup 
 
+### Current state of the project
+
+Not being actively worked on, but I plan to come back and finish some stuff up when I get the time. The core functionality of the game is done, it's mostly just making some menus and making it flow smoother. 
+
+### What's next for the project?
+
+##### High Priority
+
+- Make a menu system so that the user isn't immediately thrust into the game (although the game itself works great)
+
+##### Relatively Low Priority
+
+- Make an options menu that changes the difficulty of the game
+- Implement sounds (though there aren't really many things in my game that need sounds, maybe just like music or something 
+- Optimize the game a little bit, because the current method of making the path (like 60 recycled sprites) isn't exactly efficient and seems too brute forcey
+
 ### Challenges I faced
 
 Some of the systems in this game were easy to program, and others much harder. 
